@@ -9,8 +9,8 @@ const Peliculas = (info) => {
     return (  
 
         <Fragment>
-
-            {info.peliculas.map((pelicula) => 
+            
+            {info?.peliculas.map((pelicula) => 
                 <div className='col d-flex justify-content-center m-3 pt-3 pb-3 '>
                     <Card bg={'dark'} text={'light'} style={{ width: '19rem'}}>
                         <Card.Img variant="top" src={pelicula.Poster} style = {{height: '80%'}} />
