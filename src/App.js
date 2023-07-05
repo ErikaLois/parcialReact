@@ -61,9 +61,10 @@ function App() {
   //Se crea una función para agregar la película favorita a la sección de favoritos
   const agregarFavoritos = (pelicula) => {
     const listaFavoritos = [...peliculasFav, pelicula];
-    if(!(peliculasFav.includes(pelicula))){
+    /*if(!(peliculasFav.includes(pelicula))){
       agregarFav(listaFavoritos);
-    }
+    }*/
+    agregarFav(listaFavoritos);
     peliculasLocalStorage(listaFavoritos);
   };
 
