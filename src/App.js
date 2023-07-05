@@ -19,7 +19,9 @@ function App() {
   };
 
   //Creo una lista de películas
-  const[peliculas, guardarPelicula] = useState([]);
+  const[peliculas, guardarPelicula] = useState([
+    "prueba"
+  ]);
 
   //Creo una búsqueda de películas donde se llama a la API
   const [busqueda, crearBusqueda] = useState(['']);
