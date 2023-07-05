@@ -13,9 +13,9 @@ import Footer from './components/Footer';
 
 function App() {
 
-  //Se inicia el local storage
-  let peliculasLocalStorage = (items) => {
-    localStorage.setItem('localStorageFavoritos', JSON.stringify(items))
+ //Se inicia el local storage
+  const peliculasLocalStorage = (items) => {
+    localStorage.setItem('fav', JSON.stringify(items));
   };
 
   //Creo una lista de películas
@@ -45,18 +45,29 @@ function App() {
     
   };
 
+  const obtenerLocalStogare = () => {
+    const favoritosEnLocalStorage = localStorage.getItem('fav');
+    return favoritosEnLocalStorage ? JSON.parse(favoritosEnLocalStorage) : [];
+  }
+
   useEffect( () => {
     obtenerPelicula(busqueda);
   }, [busqueda])
 
+
+  useEffect(() => {
+    const favoritosEnLocalStorage = obtenerLocalStogare();
+    agregarFav(favoritosEnLocalStorage);
+  }, []);
+  /*
   useEffect(() => {
     const favoritosEnLocalStorage = JSON.parse(
-      localStorage.getItem('localStorageFavoritos')
+      localStorage.getItem('fav')
     );
 
     agregarFav(favoritosEnLocalStorage);
 
-  }, []);
+  }, []);*/
 
   //Se crea una función para agregar la película favorita a la sección de favoritos
   const agregarFavoritos = (pelicula) => {

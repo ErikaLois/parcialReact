@@ -4,9 +4,9 @@ const Footer = () => {
     return (  
 
         <Fragment>
-            <diV className='footer-div'>
+            <div className='footer-div'>
                 <h3 className='footer'>"¿Qué veo hoy?" todos los derechos reservados</h3>
-            </diV>
+            </div>
         </Fragment>
     );
 }

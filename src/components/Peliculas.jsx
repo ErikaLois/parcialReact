@@ -11,7 +11,7 @@ const Peliculas = (info) => {
         <Fragment>
             
             {info.peliculas?.map((pelicula) => 
-                <div className='col d-flex justify-content-center m-3 pt-3 pb-3 '>
+                <div key={pelicula.imdbID} className='col d-flex justify-content-center m-3 pt-3 pb-3 '>
                     <Card bg={'dark'} text={'light'} style={{ width: '19rem'}}>
                         <Card.Img variant="top" src={pelicula.Poster} style = {{height: '80%'}} />
                         <Card.Body className='d-flex flex-column'>
