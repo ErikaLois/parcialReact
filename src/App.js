@@ -31,13 +31,18 @@ function App() {
   const obtenerPelicula = async(busqueda) => {
     const url = `http://www.omdbapi.com/?s=${busqueda}&apikey=48066cf7`;
 
-    const resultado = await fetch(url);
+    try{
+      const resultado = await fetch(url);
 
-    const resultadoJson = await resultado.json();
+      const resultadoJson = await resultado.json();
 
-    if (resultadoJson.Search) {
-      guardarPelicula(resultadoJson.Search);
+      if (resultadoJson.Search) {
+        guardarPelicula(resultadoJson.Search);
+      }
+    } catch(error) {
+      console.log(error);
     }
+    
   };
 
   useEffect( () => {
