@@ -28,6 +28,7 @@ function App() {
   const [peliculasFav, agregarFav] = useState([]);
 
 
+  //se obtienen las peliculas con el nombre de la búsqueda
   const obtenerPelicula = async(busqueda) => {
     const url = `http://www.omdbapi.com/?s=${busqueda}&apikey=48066cf7`;
 
@@ -45,10 +46,12 @@ function App() {
     
   };
 
+  //se obtiene la información guardada en el localstorage
   const obtenerLocalStogare = () => {
     const favoritosEnLocalStorage = localStorage.getItem('fav');
     return favoritosEnLocalStorage ? JSON.parse(favoritosEnLocalStorage) : [];
   }
+
 
   useEffect( () => {
     obtenerPelicula(busqueda);
@@ -59,26 +62,18 @@ function App() {
     const favoritosEnLocalStorage = obtenerLocalStogare();
     agregarFav(favoritosEnLocalStorage);
   }, []);
-  /*
-  useEffect(() => {
-    const favoritosEnLocalStorage = JSON.parse(
-      localStorage.getItem('fav')
-    );
-
-    agregarFav(favoritosEnLocalStorage);
-
-  }, []);*/
 
   //Se crea una función para agregar la película favorita a la sección de favoritos
   const agregarFavoritos = (pelicula) => {
     const listaFavoritos = [...peliculasFav, pelicula];
-    /*if(!(peliculasFav.includes(pelicula))){
+    if(!(peliculasFav.includes(pelicula))){
       agregarFav(listaFavoritos);
-    }*/
-    agregarFav(listaFavoritos);
+    }
     peliculasLocalStorage(listaFavoritos);
   };
 
+  //Se crea una función para eliminar una película de favoritos
+  
   const eliminarFavoritos = (pelicula) => {
     const listaFavoritos = peliculasFav.filter(
       (favorito) => favorito.imdbID !== pelicula.imdbID);
